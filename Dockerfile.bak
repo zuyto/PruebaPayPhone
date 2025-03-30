@@ -1,0 +1,36 @@
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+WORKDIR /app
+#init Openshift
+LABEL io.k8s.display-name="TEMPLATE_LOGISTICA_NET_8" \
+      io.k8s.description="Web api TEMPLATE_LOGISTICA_NET_8" \
+      io.openshift.expose-services="8080:http"
+
+EXPOSE 8080
+ENV ASPNETCORE_URLS=http://*:8080
+ENV TZ=America/Bogota
+#end Openshift
+
+# Esta fase se usa para compilar el proyecto de servicio
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+ARG BUILD_CONFIGURATION=Release
+WORKDIR /src
+COPY ["TEMPLATE_LOGISTICA_NET_8.Api/TEMPLATE_LOGISTICA_NET_8.Api.csproj", "TEMPLATE_LOGISTICA_NET_8.Api/"]
+COPY ["TEMPLATE_LOGISTICA_NET_8.Application/TEMPLATE_LOGISTICA_NET_8.Application.csproj", "TEMPLATE_LOGISTICA_NET_8.Application/"]
+COPY ["TEMPLATE_LOGISTICA_NET_8.Domain/TEMPLATE_LOGISTICA_NET_8.Domain.csproj", "TEMPLATE_LOGISTICA_NET_8.Domain/"]
+COPY ["TEMPLATE_LOGISTICA_NET_8.Logger/TEMPLATE_LOGISTICA_NET_8.Logger.csproj", "TEMPLATE_LOGISTICA_NET_8.Logger/"]
+COPY ["TEMPLATE_LOGISTICA_NET_8.Infrastructure/TEMPLATE_LOGISTICA_NET_8.Infrastructure.csproj", "TEMPLATE_LOGISTICA_NET_8.Infrastructure/"]
+RUN dotnet restore "./TEMPLATE_LOGISTICA_NET_812.Api/TEMPLATE_LOGISTICA_NET_8.Api.csproj"
+COPY . .
+WORKDIR "/src/TEMPLATE_LOGISTICA_NET_8.Api"
+RUN dotnet build "./TEMPLATE_LOGISTICA_NET_8.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
+
+# Esta fase se usa para publicar el proyecto de servicio que se copiará en la fase final.
+FROM build AS publish
+ARG BUILD_CONFIGURATION=Release
+RUN dotnet publish "./TEMPLATE_LOGISTICA_NET_8.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+
+# Esta fase se usa en producción o cuando se ejecuta desde VS en modo normal (valor predeterminado cuando no se usa la configuración de depuración)
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "TEMPLATE_LOGISTICA_NET_8.Api.dll"]

@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	
+	<Title>MAURO.Application</Title>
+    <PackageReleaseNotes>Api para Logística </PackageReleaseNotes>
+
+    <Version>$(VersionPrefix)</Version>
+    <Authors>$(AssemblyName)</Authors>
+    <Company>$(Authors)</Company>
+    <Product>$(AssemblyName)</Product>
+  </PropertyGroup>
+
+ <ItemGroup>
+    <Folder Include="Common\Options\" />
+  </ItemGroup>
+
+ <ItemGroup>
+     <PackageReference Include="AsyncEnumerator" Version="4.0.2" />
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.14" />
+    <PackageReference Include="Newtonsoft.Json.Schema" Version="4.0.1" />
+    <PackageReference Include="Oracle.EntityFrameworkCore" Version="8.23.60" />
+    <PackageReference Include="Serilog" Version="4.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WALLET_SERVICE.Domain\WALLET_SERVICE.Domain.csproj" />
+    <ProjectReference Include="..\WALLET_SERVICE.Logger\WALLET_SERVICE.Logger.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <SonarQubeSetting Include="sonar.cpd.exclusions">
+      <Value>**/Common/Models/Dtos**</Value>
+    </SonarQubeSetting>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <SonarQubeSetting Include="sonar.coverage.exclusions">
+      <Value>**/Common/Models/Dtos**</Value>
+    </SonarQubeSetting>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <InternalsVisibleTo Include="WALLET_SERVICE.UnitTests.Application">
+      <Assembly>$(AssemblyName)</Assembly>
+    </InternalsVisibleTo>
+  </ItemGroup>
+
+</Project>

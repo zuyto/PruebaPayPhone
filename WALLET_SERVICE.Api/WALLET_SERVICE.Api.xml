@@ -1,0 +1,372 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WALLET_SERVICE.Api</name>
+    </assembly>
+    <members>
+        <member name="T:WALLET_SERVICE.Api.Controllers.WalletController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Controllers.WalletController.#ctor(WALLET_SERVICE.Application.Common.Interfaces.Services.Serilog.ISerilogImplements,WALLET_SERVICE.Application.Common.Interfaces.Services.IWalletService)">
+            <summary>
+            
+            </summary>
+            <param name="serilogImplements"></param>
+            <param name="walletService"></param>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Controllers.WalletController.Transfer(WALLET_SERVICE.Application.Common.Models.DTOs.DtoTransferJsonRequest)">
+            <summary>
+            Endpoint 
+            </summary>
+            <returns></returns>
+            <response code="200">OK. Devuelve el objeto solicitado</response>
+            <response code="409">Error durante el proceso</response>
+            <response code="500">Error interno en el API</response>
+            <response code="404">Error controlado cuando el Request es invalido</response>
+            <response code="400">Error controlado por el flitro del request</response>
+        </member>
+        <member name="T:WALLET_SERVICE.Api.DependecyInjectionGlobal.DependencyInjection">
+            <summary>
+            Clase encargada de realizar la inyeccion de dependencias
+            </summary>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.DependecyInjectionGlobal.DependencyInjection.AddPresentation(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.DependecyInjectionGlobal.DependencyInjection.DesabilitarSSlDevQa(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            Desabilita el SSL para Desarrollo y QA
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WALLET_SERVICE.Api.Filters.DtoDatosRequestValidator">
+             <summary>
+             
+             </summary>
+            
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Filters.DtoDatosRequestValidator.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WALLET_SERVICE.Api.Filters.DtoProductosRequestValidator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Filters.DtoProductosRequestValidator.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WALLET_SERVICE.Api.Filters.ValidationFilter">
+            <summary>
+                Filtro para las validaciones
+            </summary>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Filters.ValidationFilter.OnActionExecutionAsync(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext,Microsoft.AspNetCore.Mvc.Filters.ActionExecutionDelegate)">
+            <summary>
+                OnActionExecutionAsync
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WALLET_SERVICE.Api.Filters.FluentValidationFilter">
+            <summary>
+                FluentValidationFilter
+            </summary>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Filters.FluentValidationFilter.OnActionExecutionAsync(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext,Microsoft.AspNetCore.Mvc.Filters.ActionExecutionDelegate)">
+            <summary>
+                OnActionExecutionAsync
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Filters.FluentValidationFilter.FindValidatorType(System.Type)">
+            <summary>
+                FindValidatorType
+            </summary>
+            <param name="evt"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:WALLET_SERVICE.Api.Middleware.ConfigureSwaggerOptions">
+            <summary>
+                Configuración de Swagger
+            </summary>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Middleware.ConfigureSwaggerOptions.#ctor(Asp.Versioning.ApiExplorer.IApiVersionDescriptionProvider)">
+            <summary>
+                Contructor
+            </summary>
+            <param name="provider"></param>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Middleware.ConfigureSwaggerOptions.Configure(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:WALLET_SERVICE.Api.Middleware.LoggerConfigurationSerolog">
+            <summary>
+                Clase para la configuración de Serilog
+            </summary>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Middleware.LoggerConfigurationSerolog.Add">
+            <summary>
+                Metodo para agregar configuración de Serilog
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WALLET_SERVICE.Api.Middleware.NullBodyRequestMiddleware">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Middleware.NullBodyRequestMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            
+            </summary>
+            <param name="next"></param>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Middleware.NullBodyRequestMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WALLET_SERVICE.Api.Middleware.CustomMiddlewareExtensions">
+            <summary>
+                CustomMiddlewareExtensions
+            </summary>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Middleware.CustomMiddlewareExtensions.UseRequestResponseLogging(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+                UseRequestResponseLogging
+            </summary>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WALLET_SERVICE.Api.Middleware.RequestResponseLoggerMiddleware">
+            <summary>
+                RequestResponseLoggerMiddleware
+            </summary>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Middleware.RequestResponseLoggerMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+                RequestResponseLoggerMiddleware
+            </summary>
+            <param name="next"></param>
+            <param name="config"></param>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Middleware.RequestResponseLoggerMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+                InvokeAsync
+            </summary>
+            <param name="httpContext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Middleware.RequestResponseLoggerMiddleware.FormatHeaders(Microsoft.AspNetCore.Http.IHeaderDictionary)">
+            <summary>
+                FormatHeaders
+            </summary>
+            <param name="headers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Middleware.RequestResponseLoggerMiddleware.ReadBodyFromRequest(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+                ReadBodyFromRequest
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WALLET_SERVICE.Api.Middleware.SwaggerExtension">
+            <summary>
+                Configuración de Swagger File
+            </summary>
+            
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Middleware.SwaggerExtension.AddSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                Agrega la configuración de Swagger
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WALLET_SERVICE.Api.Middleware.VersioningExtensions">
+            <summary>
+                Versioning Extensions
+            </summary>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Middleware.VersioningExtensions.AddVersioning(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+                Add Versioning
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WALLET_SERVICE.Api.Resources">
+            <summary>
+              Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:WALLET_SERVICE.Api.Resources.ResourceManager">
+            <summary>
+              Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:WALLET_SERVICE.Api.Resources.Culture">
+            <summary>
+              Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+            </summary>
+        </member>
+        <member name="P:WALLET_SERVICE.Api.Resources.Description">
+            <summary>
+              Busca una cadena traducida similar a WALLET_SERVICE.Api.
+            </summary>
+        </member>
+        <member name="P:WALLET_SERVICE.Api.Resources.DocumentTitle">
+            <summary>
+              Busca una cadena traducida similar a WALLET_SERVICE.Api.
+            </summary>
+        </member>
+        <member name="P:WALLET_SERVICE.Api.Resources.HeadContent">
+             <summary>
+               Busca una cadena traducida similar a &lt;div class=&apos;cont-sod wrapper&apos;&gt;&lt;div id=&apos;img-cont&apos;&gt;&lt;img src=&apos;https://cdn.prod.website-files.com/66041f2aa7176fac4965cba4/661840500e6036d571173b79_LogoPayphoneHorizontal.svg&apos; class=&apos;home_icon&apos; alt=&apos;Homecenter&apos;/&gt;&lt;/div&gt;    &lt;div item xs={10} class=&apos;title-display&apos;&gt;&lt;div class=&apos;title-head&apos;&gt;&lt;/div&gt;    &lt;/div&gt;  &lt;/div&gt; &lt;div class=&apos;subtitle-cont&apos; item xs={12}&gt;      &lt;div class=&apos;subtitle&apos;&gt;Juntos construimos sueños y proyectos de hogar&lt;/div&gt;   &lt;div class=&apos;subtitle-two&apos;&gt;&lt;/div&gt;  &lt;/div&gt;
+            .
+             </summary>
+        </member>
+        <member name="P:WALLET_SERVICE.Api.Resources.Title">
+            <summary>
+              Busca una cadena traducida similar a WALLET_SERVICE.Api.
+            </summary>
+        </member>
+        <member name="P:WALLET_SERVICE.Api.Resources.UrlHome">
+            <summary>
+              Busca una cadena traducida similar a https://www.payphone.app/.
+            </summary>
+        </member>
+        <member name="T:WALLET_SERVICE.Api.Response.ApiResponse`1">
+            <summary>
+                ApiResponse
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Response.ApiResponse`1.#ctor">
+            <summary>
+                constructor
+            </summary>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Response.ApiResponse`1.#ctor(System.Boolean,System.Boolean,System.String,System.Collections.Generic.IEnumerable{System.String},`0,System.String)">
+            <summary>
+                ApiResponse
+            </summary>
+            <param name="isSuccessful"></param>
+            <param name="isError"></param>
+            <param name="errorMessage"></param>
+            <param name="messages"></param>
+            <param name="result"></param>
+            <param name="okMessage"></param>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Response.ApiResponse`1.CreateSuccessful(`0)">
+            <summary>
+                CreateSuccessful
+            </summary>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Response.ApiResponse`1.CreateSuccessful(`0,System.String)">
+            <summary>
+            CreateSuccessful 
+            </summary>
+            <param name="result"></param>
+            <param name="okMsg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Response.ApiResponse`1.CreateUnsuccessful(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+                CreateUnsuccessful
+            </summary>
+            <param name="messages"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Response.ApiResponse`1.CreateUnsuccessful(`0,System.String)">
+            <summary>
+            CreateUnsuccessful
+            </summary>
+            <param name="messages"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Response.ApiResponse`1.CreateError(System.String)">
+            <summary>
+                CreateError
+            </summary>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WALLET_SERVICE.Api.Response.ApiResponse`1.CreateError(System.String,`0)">
+            <summary>
+            CreateError con resultado
+            </summary>
+            <param name="message"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WALLET_SERVICE.Api.Response.ApiResponseBase`1">
+            <summary>
+                ApiResponseBase
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:WALLET_SERVICE.Api.Response.ApiResponseBase`1.OkMessage">
+            <summary>
+                OkMessage
+            </summary>
+        </member>
+        <member name="P:WALLET_SERVICE.Api.Response.ApiResponseBase`1.IsSuccessful">
+            <summary>
+                IsSuccessful
+            </summary>
+        </member>
+        <member name="P:WALLET_SERVICE.Api.Response.ApiResponseBase`1.ErrorMessage">
+            <summary>
+                ErrorMessage
+            </summary>
+        </member>
+        <member name="P:WALLET_SERVICE.Api.Response.ApiResponseBase`1.IsError">
+            <summary>
+                IsError
+            </summary>
+        </member>
+        <member name="P:WALLET_SERVICE.Api.Response.ApiResponseBase`1.Messages">
+            <summary>
+                Messages
+            </summary>
+        </member>
+        <member name="P:WALLET_SERVICE.Api.Response.ApiResponseBase`1.Meta">
+            <summary>
+                Meta
+            </summary>
+        </member>
+        <member name="P:WALLET_SERVICE.Api.Response.ApiResponseBase`1.Result">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Program">
+            <summary>
+            Clase principal del programa.
+            </summary>
+        </member>
+    </members>
+</doc>

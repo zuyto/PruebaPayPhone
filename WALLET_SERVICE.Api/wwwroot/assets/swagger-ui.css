@@ -1,0 +1,150 @@
+
+
+div.topbar {
+  background-color: #ff6400 !important;
+  max-width: 1460px;
+  margin: 0 auto;
+}
+
+h2, h3 {
+  color: #ff6400 !important;
+}
+
+.opblock-summary-get > button > span.opblock-summary-method {
+  background-color: #0071ce !important;
+}
+
+.opblock-summary-post > button > span.opblock-summary-method {
+  background-color: #0F8A5F !important;
+}
+
+.opblock-summary-delete > button > span.opblock-summary-method {
+  background-color: #CC231E !important;
+}
+
+.title-head {
+  color: white !important;
+  font-size: 4rem;
+  margin-top: 0rem;
+  margin-left: 0.5rem;
+  font-family: Lato, sans-serif;
+}
+
+.title-display {
+  align-items: center;
+  display: flex;
+}
+
+.subtitle {
+  color: white !important;
+  font-size: 16px;
+  text-align: justify;
+}
+
+.subtitle-two {
+  color: white !important;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-family: Insider-Lato, sans-serif !important;
+}
+
+.time {
+  text-align: right;
+  color: rgba(0, 0, 0, 0.658);
+}
+
+.home_icon {
+  height: 80px;
+  align-items: center;
+  text-align: center;
+  margin-top: 0px;
+}
+
+#img-cont {
+  display: inline-table;
+  margin: 1px;
+  background-color: white;
+}
+
+.css-1mhk73l-MuiButtonBase-root-MuiTab-root {
+  font-size: 0.8rem !important;
+  font-weight: bold !important;
+}
+
+  .css-1mhk73l-MuiButtonBase-root-MuiTab-root.Mui-selected {
+    font-size: 1rem !important;
+  }
+
+button.Mui-selected {
+  font-size: 1rem !important;
+}
+
+button.MuiButtonBase-root {
+  font-size: 0.8rem !important;
+  font-weight: bold !important;
+}
+
+.css-mhc70k-MuiGrid-root > .MuiGrid-item {
+  padding-top: 0px;
+}
+
+.swagger-ui .info a {
+  color: #ff6400;
+}
+
+
+@media (min-width: 600px) {
+  /* Estilos para pantallas más grandes que 600px */
+  #swagger-ui .cont-sod {
+    flex-flow: row wrap; /* Vuelve a la disposición en fila */
+    width: calc(100% + 16px);
+  }
+
+  #swagger-ui .title-display {
+    flex-direction: row; /* Vuelve a la disposición en fila */
+  }
+
+  #swagger-ui .subtitle-cont {
+    padding-left: calc(3rem + 80px);
+    padding-bottom: 1rem;
+  }
+  .swagger-ui .info a {
+    color: #ff6400;
+  }
+}
+
+.cont-sod {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  width: calc(100% + 16px);
+  padding-left: 1rem !important;
+  padding-top: 1rem !important;
+  padding-right: 1rem !important;
+  padding-bottom: 0rem !important;
+  background-color: #ff6400 !important;
+  max-width: 1460px;
+  margin: 0 auto;
+}
+
+.subtitle-cont {
+  font-family: Lato, sans-serif;
+  background-color: #ff6400;
+  padding-left: calc(3rem + 80px);
+  padding-bottom: 1rem;
+  max-width: 1460px;
+  margin: 0 auto;
+}
+
+.select-label select {
+  border: 2px solid rgba(0, 0, 0, 0.658) !important;
+  border-radius: 5px;
+  padding: 5px;
+  color: #ff6400;
+  background-color: #f2f2f2;
+}
+
+.version-stamp {
+  background-color: #ff6400 !important;
+}
